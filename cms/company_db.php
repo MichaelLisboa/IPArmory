@@ -1,23 +1,27 @@
 <?php
-if ( $adminAccess == '' ) {
-	$res=mysql_query("SELECT * FROM users WHERE userId='" . $_SESSION['user'] . "'");
-	$userRow = mysql_fetch_array($res); 	
-	$adminAccess = $userRow['userLevel'];
-}
-$msql=mysql_query("SELECT * FROM company WHERE company_id= '$companyID'");
-$row=mysql_fetch_array($msql);
-$companyName = $row['company_name'];
-$companyRegisteredName = $row['company_registered_name'];
-$companyURL = $row['company_url'];
-$companyAdmin = $row['company_admin'];
-$companyPhone = $row['company_phone'];
-$companyEmail = $row['company_email'];
-$companyAddress = $row['company_address'];
-$companyType = $row['company_type'];
-$companyTagline = $row['company_tagline'];
-$companyTheme = $row['company_theme'];
-$companyConfidentiality = $row['company_confidentiality'];
-$companyNDA = $row['company_nda'];
+	if ( $adminAccess == '' ) {
+		$res=mysql_query("SELECT * FROM users WHERE userId='" . $_SESSION['user'] . "'");
+		$userRow = mysql_fetch_array($res); 	
+		$adminAccess = $userRow['userLevel'];
+	}
+	
+	$company_query=mysql_query("SELECT * FROM company WHERE company_id='$companyID'");
+	
+	$company_row=mysql_fetch_array($company_query);
+	
+	$companyName = $company_row['company_name'];
+	$companyRegisteredName = $company_row['company_registered_name'];
+	$companyURL = $company_row['company_url'];
+	$companyAdmin = $company_row['company_admin'];
+	$companyPhone = $company_row['company_phone'];
+	$companyEmail = $company_row['company_email'];
+	$companyAddress = $company_row['company_address'];
+	$companyType = $company_row['company_type'];
+	$companyTagline = $company_row['company_tagline'];
+	$companyTheme = $company_row['company_theme'];
+	$companyConfidentiality = $company_row['company_confidentiality'];
+	$companyNDA = $company_row['company_nda'];
+
  // ------------------------------------
  //       SIR TREVOR RENDERING
  // ------------------------------------ 

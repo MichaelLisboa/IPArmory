@@ -1,6 +1,7 @@
 <?php
  ob_start();
  session_start();
+ include_once $_SERVER['DOCUMENT_ROOT'] . '/cms/config.php';
  
  
  // if session is not set this will redirect to login page
@@ -13,13 +14,7 @@
 error_reporting( ~E_DEPRECATED & ~E_NOTICE );
 // but I strongly suggest you to use PDO or MySQLi.
 
- define('DBHOST', 'localhost');
- define('DBUSER', 'kizmo');
- define('DBPASS', '!Murderbug005');
- define('DBNAME', 'dev_pixt');
-
-$conn = mysql_connect(DBHOST,DBUSER,DBPASS);
-$dbcon = mysql_select_db(DBNAME);
+require_once $root . '/cms/dbconnect.php';
 
 if ( !$conn ) {
  die("Connection failed : " . mysql_error());

@@ -2,9 +2,8 @@
 
  ob_start();
  session_start();
- require_once "../cms/config.php";
- require_once "../cms/dbconnect.php";
- require_once "../cms/company_db.php";
+ require_once $_SERVER['DOCUMENT_ROOT'] . "/cms/config.php";
+ require_once $root . '/cms/company_db.php';
  
  // if session is not set this will redirect to login page
  if( !isset($_SESSION['user']) ) {
@@ -366,7 +365,7 @@ if (isset($_POST['submit'])){
 
 	
 
-		if($row){
+		if($company_row){
 								
 			// show form
 			
