@@ -38,7 +38,7 @@ date_default_timezone_set('Asia/Singapore');
 		// if there's no error, continue to signup
 		if( !$error ) {	
 			$to = "michael.lisboa@gmail.com";
-			$subject = "$name HAS SENT A MESSAGE FROM PIXT!";
+			$subject = "$name HAS SENT A MESSAGE FROM <?php echo $companyName ?>!";
 			$message = "<h1>Hello Michael, you have a new message from $firstName[0]!</h1>";
 			$message .= "<p><strong>$firstName[0] said:</strong></p><p>" . nl2br($comment, false) . "</p>";
 			$message .= "<p><strong>$firstName[0]'s phone number is:</strong> $phone<br />";

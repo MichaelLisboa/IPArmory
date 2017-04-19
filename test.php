@@ -90,7 +90,7 @@
 							<div class="bg-img bg-img-1"></div>
 						<div class="carousel-caption">
 							<div>
-								<img class="wow fadeInUp" src="img/pixt.png" alt="Pixt">
+								<img class="wow fadeInUp" src="img/pixt.png" alt="<?php echo $companyName ?>">
 								<h2 data-wow-duration="500ms"  data-wow-delay="500ms" class="heading animated fadeInRight"><?php echo $companyTagline ?></h2>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 					<!-- logo -->
                     <a class="navbar-brand" href="#body">
 						<h1 id="logo">
-							<img src="img/logo-pixt.png" alt="Pixt" />
+							<img src="img/logo-pixt.png" alt="<?php echo $companyName ?>" />
 						</h1>
 					</a>
 					<!-- /logo -->
@@ -170,7 +170,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3 class="ddd">Artificial Intelligence</h3>								
-								<p><strong>PixtBot</strong> is designed to scrape metadata to collect, categorize and create live stories of images and videos uploaded by people like you and us.</p>
+								<p><strong><?php echo $companyName ?>Bot</strong> is designed to scrape metadata to collect, categorize and create live stories of images and videos uploaded by people like you and us.</p>
 							</div>
 						</div>
 					</div> 

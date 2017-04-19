@@ -12,7 +12,7 @@ Deletes a specific entry from the 'players' table
 
 // connect to the database
 
-include('dbconnect.php');
+include('../cms/dbconnect.php');
 
 
 

@@ -11,6 +11,11 @@
   exit;
  }
  
+ $relconn = mysql_query("SELECT company.company_admin, users.userName FROM company, users WHERE company.company_admin = users.userId");
+ $relRow = mysql_fetch_array($relconn);
+ 
+ $companyAdmin = $relRow['userName'];
+ 
  $res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
  $userRow=mysql_fetch_array($res);
  
@@ -19,9 +24,8 @@ if( ($userRow['userLevel']) == '0' ) {
 	 die;
 }
  
- function renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyAdminId, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, $error) {
- 
- ?>
+ function renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, $error) {
+?>
 
 
 <!DOCTYPE html>
@@ -130,7 +134,8 @@ if( ($userRow['userLevel']) == '0' ) {
     ==================================== -->
     <header id="navigation" class="navbar navbar-inverse">
         <div class="container">
-            <?php include '../includes/admin-nav.php' ?>    		
+            <?php include '../includes/admin-nav.php' ?>
+    		
         </div>
     </header>
     <!--
@@ -149,6 +154,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 }
 
 ?>
+    
 <!-- Start Blog Banner
     ==================================== -->
     <section id="blog-banner">
@@ -160,7 +166,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
                         <i class="fa fa-building fa-5x"></i>
                     </div>
                     <div class="blog-title">
-                        <h1><?php echo $companyName; ?> <span class="color">Setup</span></h1>
+                        <h1><?php echo $companyName; ?> <span class="color">File Downloads</span></h1>
                     </div>
                     
 				</div>     <!-- End col-lg-12 -->
@@ -198,24 +204,9 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 				   							<input type="text" name="companyURL" class="form-control" placeholder="Company URL" id="companyURL" value="<?php echo $companyURL ?>"></label>
 				   						</div>
 				   						<div class="form-group">
-			   								<label for="companyAdmin">Company Administrator:
-				   								<select name="companyAdmin" class="styled-select">				   						
-				   						<?php 
-				   						
-				   						$result = mysql_query("SELECT users.userId, users.userName, company.company_admin FROM users, company WHERE userLevel >= '1'") or die(mysql_error());
-					   						while($row = mysql_fetch_array( $result )) {
-					   							$userId = $row['userId'];
-					   							$userName = $row['userName'];
-					   							$companyAdmin = $row['company_admin'];
-					   							$selectedAdmin = ($row['userId'] == $companyAdmin) ? 'selected' :'';
-					   							
-				   								echo '<option ' . $selectedAdmin . ' value="' . $userId . '"> ' . $userName . '</option>';
-					   						}
-			   							?>
-				   								</select>
-			   								</label>
-			   							</div>
-			   							
+				   							<label for="companyAdmin">Company Administrator:
+				   							<input type="text" name="companyAdmin" class="form-control" placeholder="Company Administrator" id="companyAdmin" value="<?php echo  $companyAdmin ?>"></label>
+				   						</div>
 				   						<div class="form-group">
 				   							<label for="companyPhone">Company Phone Number:
 				   							<input type="text" name="companyPhone" class="form-control" placeholder="Company Phone Number" id="companyPhone" value="<?php echo $companyPhone ?>"></label>
@@ -263,6 +254,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 							            </div>
 				   					</form>
 				   				</article>
+						
 		                <!-- End Single Post -->
 		
 		            </div>
@@ -277,64 +269,8 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 	   	
     </body>
 </html>
-<?php 
-} 
- 
- // check if the form has been submitted. If it has, process the form and save it to the database
- 
- if (isset($_POST['submit'])){
- 
- // get form data, making sure it is valid
- 	
- 	$companyName = mysql_real_escape_string(htmlspecialchars($_POST['companyName']));
- 	$companyRegisteredName = mysql_real_escape_string(htmlspecialchars($_POST['companyRegisteredName']));
- 	$companyURL = mysql_real_escape_string(htmlspecialchars($_POST['companyURL']));
- 	$companyAdmin = mysql_real_escape_string(htmlspecialchars($_POST['companyAdmin']));
- 	$companyPhone = mysql_real_escape_string(htmlspecialchars($_POST['companyPhone']));
- 	$companyAddress = mysql_real_escape_string(htmlspecialchars($_POST['companyAddress']));
- 	$companyEmail = mysql_real_escape_string(htmlspecialchars($_POST['companyEmail']));
- 	$companyType = mysql_real_escape_string(htmlspecialchars($_POST['companyType']));
- 	$companyTheme = $_POST['companyTheme'];
- 	$companyTagline = mysql_real_escape_string($_POST['companyTagline']);
- 	$companyConfidentiality = mysql_real_escape_string($_POST['companyConfidentiality']);
- 	$companyNDA = mysql_real_escape_string($_POST['companyNDA']);
- 	
- 
- 			
- 
- 	if ($companyName == '' || $companyRegisteredName == '' || $companyURL == '' || $companyAdmin == '' || $companyPhone == '' || $companyAddress == '' || $companyEmail == '' || $companyType == '' || $companyConfidentiality == '' || $companyNDA == '') {
- 	
- 		$error = 'ERROR: Please fill in all required fields!';
- 		renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, $error);
- 	
- 	}else{
- 			
- 		// save the data to the database
- 		mysql_query("UPDATE company SET company_name='$companyName', company_registered_name='$companyRegisteredName', company_url='$companyURL', company_admin='$companyAdmin', company_phone='$companyPhone', company_address='$companyAddress', company_email='$companyEmail', company_type='$companyType', company_tagline='$companyTagline', company_theme ='$companyTheme', company_confidentiality='$companyConfidentiality', company_nda='$companyNDA' WHERE company_id='$companyID'") or die(mysql_error());
- 		
- 		// once saved, redirect back to the view page
- 		header("Location: company-setup.php");
- 	}
- 
- }else{
- 
- 	// get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
- 
- 	
- 
- 		if($company_row){
- 		 			
- 			renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyAdminId, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, '');
- 		
- 		}else{
- 		
- 		echo "No results!";
- 		
- 		}
- 
- }
- 
-?>
+
+
 
 <!-- 
 Essential Scripts
@@ -352,3 +288,65 @@ Essential Scripts
 <script src="/js/jquery.sticky.js"></script>
 <!-- Custom js -->
 <script src="/js/custom-sub.js"></script>
+
+<?php
+
+}
+
+
+// check if the form has been submitted. If it has, process the form and save it to the database
+
+if (isset($_POST['submit'])){
+
+// get form data, making sure it is valid
+	
+	$companyName = mysql_real_escape_string(htmlspecialchars($_POST['companyName']));
+	$companyRegisteredName = mysql_real_escape_string(htmlspecialchars($_POST['companyRegisteredName']));
+	$companyURL = mysql_real_escape_string(htmlspecialchars($_POST['companyURL']));
+	$companyAdmin = mysql_real_escape_string(htmlspecialchars($_POST['companyAdmin']));
+	$companyPhone = mysql_real_escape_string(htmlspecialchars($_POST['companyPhone']));
+	$companyAddress = mysql_real_escape_string(htmlspecialchars($_POST['companyAddress']));
+	$companyEmail = mysql_real_escape_string(htmlspecialchars($_POST['companyEmail']));
+	$companyType = mysql_real_escape_string(htmlspecialchars($_POST['companyType']));
+	$companyTheme = $_POST['companyTheme'];
+	$companyTagline = mysql_real_escape_string($_POST['companyTagline']);
+	$companyConfidentiality = mysql_real_escape_string($_POST['companyConfidentiality']);
+	$companyNDA = mysql_real_escape_string($_POST['companyNDA']);
+
+	if ($companyName == '' || $companyRegisteredName == '' || $companyURL == '' || $companyAdmin == '' || $companyPhone == '' || $companyAddress == '' || $companyEmail == '' || $companyType == '' || $companyConfidentiality == '' || $companyNDA == '') {
+	
+		$error = 'ERROR: Please fill in all required fields!';
+		renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, $error);
+	
+	}else{
+	
+		
+		
+		// save the data to the database
+		mysql_query("UPDATE company SET company_name='$companyName', company_registered_name='$companyRegisteredName', company_url='$companyURL', company_admin='$companyAdmin', company_phone='$companyPhone', company_address='$companyAddress', company_email='$companyEmail', company_type='$companyType', company_tagline='$companyTagline', company_theme ='$companyTheme', company_confidentiality='$companyConfidentiality', company_nda='$companyNDA' WHERE company_id='$companyID'") or die(mysql_error());
+		
+		// once saved, redirect back to the view page
+		header("Location: company-setup.php");
+	}
+
+}else{
+
+	// get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
+
+	
+
+		if($company_row){
+								
+			// show form
+			
+			renderForm($companyName, $companyRegisteredName, $companyURL, $companyAdmin, $companyPhone, $companyAddress, $companyEmail, $companyType, $companyTagline, $companyTheme, $companyConfidentiality, $companyNDA, '');
+		
+		}else{
+		
+		echo "No results!";
+		
+		}
+
+}
+
+?>

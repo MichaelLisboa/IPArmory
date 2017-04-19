@@ -69,10 +69,10 @@
     	$darkBackgroundColor = "#710e42";
     	$objectBackgroundColor = "#710e42";
     	$borderColor = "#d0246e"; 
-    	$titleFont = "http://fonts.googleapis.com/css?family=Monstserrat:600,400,300";
+    	$titleFont = "http://fonts.googleapis.com/css?family=Montserrat:600,400,300";
     	$bodyFont = "http://fonts.googleapis.com/css?family=Merriweather:400,300";
     	$bodyFontFamily = "'Merriweather', 'Georgia', serif";
-    	$titleFontFamily = "Monstserrat, sans-serif";
+    	$titleFontFamily = "Montserrat, sans-serif";
     }else {    	
     	// BRIGHTWHITE THEME
     	$brandColor = "#f21058";
@@ -170,6 +170,12 @@ dd{
 
 .kill-margin-bottom {
 	margin-bottom: 0 !important;
+}
+
+.section-headers > p > strong{
+	color: <?php echo $brandColor ?>;
+	font-family: <?php echo $titleFontFamily ?>;
+	font-weight: 400;
 }
 
 .btn {
@@ -1360,7 +1366,7 @@ dd{
         background-color: <?php echo $navbarBackgroundColor ?>;
     }
     .navbar-inverse .navbar-nav>li>a.current, .navbar-inverse .navbar-nav>li>a:hover {
-        background-color: <?php echo $navLinkColor ?>;
+        background-color: <?php echo $darkBackgroundColor ?>;
         border-bottom: 1px solid <?php echo $defaultCopyColor ?>;
         color: <?php echo $defaultCopyColor ?>;
     }

@@ -2,7 +2,6 @@
  ob_start();
  session_start();
  require( "../cms/config.php" );
- require_once 'dbconnect.php';
  require_once '../cms/company_db.php';
  
  // if session is not set this will redirect to login page
@@ -17,10 +16,10 @@
  $adminName = $userRow['userName'];
  $adminEmail = $userRow['userEmail'];
  
- if( ($userRow['userLevel']) != '1' ) {
- 	 header("Location: /index.php");
- 	 die;
- }
+if( ($userRow['userLevel']) == '0' ) {
+	 header("Location: /index.php");
+	 die;
+}
 
  $error = false;
 
@@ -117,16 +116,16 @@
     
    if ($res) {
     
-    $subject = "Your Pixt login information";
-    $message = "<h3>Hello $name,<br>You have a new account set up to access the Pixt business plan online!</h3>";
+    $subject = "Your <?php echo $companyName ?> login information";
+    $message = "<h3>Hello $name,<br>You have a new account set up to access the" . $companyName . "business plan online!</h3>";
     
     if (!empty($comment)) {
     	$message .= "<p><strong>Here's a message from $adminName:</strong>" . nl2br($comment, false) . "</p>";
     }
     
-    $message .= "<p style=\"font-size:14px;\"><strong>Please visit http://pixt.us</strong></p>";
+    $message .= "<p style=\"font-size:14px;\"><strong>Please visit" . $companyURL . "</strong></p>";
     $message .= "<p><strong>Your user name is:</strong> $email<br><strong>Your password is:</strong> $pass</p>";    
-    $message .= "<p>Thank you,<br>Your friends at Pixt</p>";
+    $message .= "<p>Thank you,<br>Your friends at" . $companyName . "</p>";
     $message .= "<p style=\"font-size:10px;color:#666;\">Please note that this email, and any files transmitted with it, are confidential and intended solely for the use of the individual or entity to whom it is addressed.This message contains confidential information and is intended only for the individual named. If you are not the named addressee, you should not disseminate, distribute or copy this email. Please notify the sender immediately by email if you have received this email by mistake and delete this email and any attachments from your system. If you are not the intended recipient, you are notified that disclosing, copying, distributing or taking any action in reliance on the contents of this information is strictly prohibited. Thank you!</p>";
     
     
@@ -165,10 +164,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Pixt">
+        <meta name="description" content="<?php echo $companyName ?> | Admin Panel">
         <meta name="robots" content="noindex" />
 		
-        <title>Pixt</title>
+        <title><?php echo $companyName ?> | Admin Panel</title>
 		
 		<!-- Mobile Specific Meta
 		================================================== -->
@@ -176,22 +175,22 @@
 		
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-<link rel="manifest" href="/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+		<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
 		
 		<!-- CSS
 		================================================== -->
@@ -227,34 +226,8 @@
 	   ==================================== -->
 	   <header id="navigation" class="navbar navbar-inverse">
 	       <div class="container">
-	           <div class="navbar-header">	
-	           	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                   <span class="sr-only">Toggle navigation</span>
-	                   <span class="icon-bar"></span>
-	                   <span class="icon-bar"></span>
-	                   <span class="icon-bar"></span>
-	               </button>				
-	   			<!-- logo -->
-	               <a class="navbar-brand" href="index.php">
-	   				<h1 id="logo">
-	   					<img src="/img/logo-pixt.png" alt="Pixt" />
-	   				</h1>
-	   			</a>
-	   			<!-- /logo -->
-	           </div>
-	           
-	   		<!-- main nav -->
-	           <nav class="collapse navbar-collapse navbar-right" role="Navigation">
-	               <ul id="nav" class="nav navbar-nav" data-toggle="collapse" data-target="#navbar-menu">
-	                   <li><a href="/index.php" data-toggle="collapse" data-target=".navbar-collapse.in">Go to Pixt</a></li>
-	                   <li><a href="view.php" data-toggle="collapse" data-target=".navbar-collapse.in">See All Guests</a></li>
-	                   <li><a href="new.php" data-toggle="collapse" data-target=".navbar-collapse.in">Add a New Guest</a></li>
-	                   <li><a href="access.php" data-toggle="collapse" data-target=".navbar-collapse.in">Activity Tracking</a></li>
-	                   <li><a href="company-setup.php" data-toggle="collapse" data-target=".navbar-collapse.in">Company Info</a></li>
-	                   <li><a href="/logout.php?logout" data-toggle="collapse" data-target=".navbar-collapse.in">Logout</a></li>
-	               </ul>
-	           </nav>
-	   		<!-- /main nav -->
+	           	           
+		   		<?php include '../includes/admin-nav.php' ?>
 	   		
 	       </div>
 	   </header>

@@ -12,52 +12,36 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Pixt | Frequently Asked Questions</title>
-		
-        <meta name="description" content="description">
-		
-		<!-- Mobile Specific Meta
-		================================================== -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<!-- Favicon -->
-<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-<link rel="manifest" href="/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-		
-		<!-- CSS
-		================================================== -->
-		<!-- Fontawesome Icon font -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- bootstrap.min css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- Animate.css -->
-        <link rel="stylesheet" href="css/animate.css">
-		<!-- Main Stylesheet -->
-        <link rel="stylesheet" href="/css/main.php?v=<?php echo rand() ?>">
-        
-		
-		
-		<!-- Modernizer Script for old Browsers -->
-        <script async src="js/modernizr-2.6.2.min.js"></script>
+<head>
+    <title><?php echo $companyName ?> | View the <?php echo $companyName ?> FAQs</title>
+    <meta name="description" content="The <?php echo $companyName ?> FAQs">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.php?v=<?php echo rand() ?>">
+    
+    <script async src="js/modernizr-2.6.2.min.js"></script>
         
         
     	
@@ -141,29 +125,29 @@
 									<p class="clearfix">&nbsp;</p>
 									<div class="col-md-6">
 										<dl class="toc" style="padding: 25px 2em 0 0;">
-											<dt>About Pixt</dt>
-											<dd><a href="#what"><i class="fa fa-angle-right"></i> &nbsp;What is Pixt?</a></dd>
-											<dd><a href="#problems"><i class="fa fa-angle-right"></i> &nbsp;What Problems Does Pixt Solve?</a></dd>
+											<dt>About <?php echo $companyName ?></dt>
+											<dd><a href="#what"><i class="fa fa-angle-right"></i> &nbsp;What is <?php echo $companyName ?>?</a></dd>
+											<dd><a href="#problems"><i class="fa fa-angle-right"></i> &nbsp;What Problems Does <?php echo $companyName ?> Solve?</a></dd>
 											<dd><a href="#competition"><i class="fa fa-angle-right"></i> &nbsp;Who is the Competition?</a></dd>
-											<dd><a href="#michael"><i class="fa fa-angle-right"></i> &nbsp;Who is the Pixt Team?</a></dd>
+											<dd><a href="#michael"><i class="fa fa-angle-right"></i> &nbsp;Who is the <?php echo $companyName ?> Team?</a></dd>
 											<dt>Funding and Projections</dt>											
 											<dd><a href="#funding"><i class="fa fa-angle-right"></i> &nbsp;About Convertible Loan Funding.</a></dd>
-											<dd><a href="#valuation"><i class="fa fa-angle-right"></i> &nbsp;What is the Valuation Pixt?</a></dd>
-											<dd><a href="#spend"><i class="fa fa-angle-right"></i> &nbsp;Pixt Funding Distribution</a></dd>	
+											<dd><a href="#valuation"><i class="fa fa-angle-right"></i> &nbsp;What is the Valuation <?php echo $companyName ?>?</a></dd>
+											<dd><a href="#spend"><i class="fa fa-angle-right"></i> &nbsp;<?php echo $companyName ?> Funding Distribution</a></dd>	
 											<dt>Business Outlook</dt>
-											<dd><a href="#revenue"><i class="fa fa-angle-right"></i> &nbsp;How Will Pixt Make Money?</a></dd>
+											<dd><a href="#revenue"><i class="fa fa-angle-right"></i> &nbsp;How Will <?php echo $companyName ?> Make Money?</a></dd>
 											<dd><a href="#swot"><i class="fa fa-angle-right"></i> &nbsp;Strengths and Weaknesses.</a></dd>
-											<dd><a href="#exit"><i class="fa fa-angle-right"></i> &nbsp;What is Pixt's Exit Strategy?</a></dd>									
+											<dd><a href="#exit"><i class="fa fa-angle-right"></i> &nbsp;What is <?php echo $companyName ?>'s Exit Strategy?</a></dd>									
 										</dl>
 									</div>
 									<div class="col-md-6">										
 											<dl class="toc" style="padding: 25px 2em 0 0;">
 												<dt>Our Audiences</dt>
-												<dd><a href="#audience"><i class="fa fa-angle-right"></i> &nbsp;Who is Pixt's Target Audience?</a></dd>
-												<dd><a href="#why-pixt"><i class="fa fa-angle-right"></i> &nbsp;Why Will People Use Pixt?</a></dd>
-												<dd><a href="#where"><i class="fa fa-angle-right"></i> &nbsp;Where Will Pixt Launch?</a></dd>
+												<dd><a href="#audience"><i class="fa fa-angle-right"></i> &nbsp;Who is <?php echo $companyName ?>'s Target Audience?</a></dd>
+												<dd><a href="#why-<?php echo $companyName ?>"><i class="fa fa-angle-right"></i> &nbsp;Why Will People Use <?php echo $companyName ?>?</a></dd>
+												<dd><a href="#where"><i class="fa fa-angle-right"></i> &nbsp;Where Will <?php echo $companyName ?> Launch?</a></dd>
 												<dd><a href="#emerging"><i class="fa fa-angle-right"></i> &nbsp;Reaching Emerging Markets.</a></dd>
-												<dt>Pixt Technology</dt>
+												<dt><?php echo $companyName ?> Technology</dt>
 												<dd><a href="#patents"><i class="fa fa-angle-right"></i> &nbsp;About Our Patents.</a></dd>											
 											</dl>
 									</div>
@@ -176,20 +160,20 @@
 									</section>
 									<section class="col-md-12" id="what">
 											<div class="row">
-												<h4 class="color">What Is Pixt?</h4>
+												<h4 class="color">What Is <?php echo $companyName ?>?</h4>
 												<!--<p>Since the introduction of mobile phones in the consumer market, we’ve known that mobile devices would become intrinsic to the daily lives of people worldwide&mdash;how we learn, communicate, share and are informed. Long before the first iPhone was sold, we saw the future and recognized the power of mobile and we invented a platform that would place that power in everybody's hands.</p>
-												<p>Our background is in working with <a href="https://www.wearekizmo.com" class="color" target="_blank">startups and global brands</a> to launch digital products. But we were inspired to invent Pixt because we've seen how the people can have immense impact on culture and society&mdash;from music festivals to natural disasters to the palm tree farmers in Sumatra&mdash;how events are reported, and the evolution of information sharing created by a small device we hold in our hands every day.</p> -->
-												<p>Pixt is a first of its kind application that's powered by people taking photos and videos with their mobile devices to upload and share. Our unique Artificial Intelligence collects, categorizes and creates live stories of all of the collected data in real time.</p>
-												<p>Pixt is powered by PixtBot&mdash;an innovative artificial intelligence that is set up to listen and search across the web, chat and social media platforms&mdash;allowing our users to communicate, search, and ask questions in natural language (e.g., "PixtBot, show me the women's march in Washington"). PixtBot will also receive our users' uploads and messages to pass on to Pixt's Artificial Intelligence to create live stories in microseconds.</p>
-												<p><a href="home.php?#blog" class="color">We hold two patents</a> supporting the invention, development, and public launch of Pixt, with others to come.</p>
+												<p>Our background is in working with <a href="https://www.wearekizmo.com" class="color" target="_blank">startups and global brands</a> to launch digital products. But we were inspired to invent <?php echo $companyName ?> because we've seen how the people can have immense impact on culture and society&mdash;from music festivals to natural disasters to the palm tree farmers in Sumatra&mdash;how events are reported, and the evolution of information sharing created by a small device we hold in our hands every day.</p> -->
+												<p><?php echo $companyName ?> is a first of its kind application that's powered by people taking photos and videos with their mobile devices to upload and share. Our unique Artificial Intelligence collects, categorizes and creates live stories of all of the collected data in real time.</p>
+												<p><?php echo $companyName ?> is powered by <?php echo $companyName ?>Bot&mdash;an innovative artificial intelligence that is set up to listen and search across the web, chat and social media platforms&mdash;allowing our users to communicate, search, and ask questions in natural language (e.g., "<?php echo $companyName ?>Bot, show me the women's march in Washington"). <?php echo $companyName ?>Bot will also receive our users' uploads and messages to pass on to <?php echo $companyName ?>'s Artificial Intelligence to create live stories in microseconds.</p>
+												<p><a href="home.php?#blog" class="color">We hold two patents</a> supporting the invention, development, and public launch of <?php echo $companyName ?>, with others to come.</p>
 												<a href="javascript:;" class="color scrollUp"><i class="fa fa-arrow-circle-up"> Back to top</i></a>
 											</div>
 									</section>
 									<section class="col-md-12" id="problems">
 											<div class="row">
-												<h4 class="color">What Problems Does Pixt Solve?</h4>
-												<p>Pixt will generate live stories based on time, location, source, tags, and other metadata—and simultaneously battle the problem of fake news and internet trolling—by compiling countless media files that people around the world upload through any medium, including the Pixt app, website, or any chat/messenger service, such as WhatsApp, Facebook Messenger, Line, WeChat and more.</p>
-												<p>Pixt will be the central resource where news agents, media channels, brands and others can purchase licenses to images and videos, creating a new marketplace for over 3 billion images and videos uploaded every day by people like you and us.</p>
+												<h4 class="color">What Problems Does <?php echo $companyName ?> Solve?</h4>
+												<p><?php echo $companyName ?> will generate live stories based on time, location, source, tags, and other metadata—and simultaneously battle the problem of fake news and internet trolling—by compiling countless media files that people around the world upload through any medium, including the <?php echo $companyName ?> app, website, or any chat/messenger service, such as WhatsApp, Facebook Messenger, Line, WeChat and more.</p>
+												<p><?php echo $companyName ?> will be the central resource where news agents, media channels, brands and others can purchase licenses to images and videos, creating a new marketplace for over 3 billion images and videos uploaded every day by people like you and us.</p>
 												<a href="javascript:;" class="color scrollUp"><i class="fa fa-arrow-circle-up"> Back to top</i></a>
 											</div>
 									</section>
@@ -197,22 +181,22 @@
 											<div class="row">
 												<h4 class="color">Who is the Competition?</h4>
 												<p>Every business has competition. We embrace ours.</p>
-												<p><strong>Facebook, Instagram, Google, etc.</strong><br />Pixt competes for usage and mind-share against the giants of social media. They’re competitors in all aspects of user numbers, scale and revenue. Pixt will embrace these services as marketing channels, providing us extensive reach at a lower media-buying cost (we know the advertising business).</p>
+												<p><strong>Facebook, Instagram, Google, etc.</strong><br /><?php echo $companyName ?> competes for usage and mind-share against the giants of social media. They’re competitors in all aspects of user numbers, scale and revenue. <?php echo $companyName ?> will embrace these services as marketing channels, providing us extensive reach at a lower media-buying cost (we know the advertising business).</p>
 												<ul style="list-style-type:square;padding: 0 2em;">
 													<li><p>Their business model is primarily social media for sharing, commenting, and liking user uploads (which benefits us).</p></li>
-													<li><p>They all claim IP ownership of every image and video uploaded to their social platforms. <br /><strong>Meanwhile, Pixt profits by our users keeping their IP ownership</strong>.</p></li>
-													<li><p>Every Pixt image and video that is shared to our competitors' platforms will have a “Paid by Pixt” border on it (very similar to the bylines that The Associated Press, Reuters, and Getty use), building recognition for the Pixt platform.</p></li>
-													<li><p>Pixt will be actively marketing on our competitors’ platforms, sharing our PixtBot AI generated articles to drive users to the Pixt service, similar to the major news agencies.</p></li>
-													<li><p>Pixt will leverage our competitors' chat platforms—including Facebook Messenger, Twitter, WhatsApp, WeChat, Google Hangouts, and more—through our PixtBot, that will listen and communicate with those platforms’ audiences.</p></li>
+													<li><p>They all claim IP ownership of every image and video uploaded to their social platforms. <br /><strong>Meanwhile, <?php echo $companyName ?> profits by our users keeping their IP ownership</strong>.</p></li>
+													<li><p>Every <?php echo $companyName ?> image and video that is shared to our competitors' platforms will have a “Paid by <?php echo $companyName ?>” border on it (very similar to the bylines that The Associated Press, Reuters, and Getty use), building recognition for the <?php echo $companyName ?> platform.</p></li>
+													<li><p><?php echo $companyName ?> will be actively marketing on our competitors’ platforms, sharing our <?php echo $companyName ?>Bot AI generated articles to drive users to the <?php echo $companyName ?> service, similar to the major news agencies.</p></li>
+													<li><p><?php echo $companyName ?> will leverage our competitors' chat platforms—including Facebook Messenger, Twitter, WhatsApp, WeChat, Google Hangouts, and more—through our <?php echo $companyName ?>Bot, that will listen and communicate with those platforms’ audiences.</p></li>
 												</ul>
 												<div class="clearfix">&nbsp;</div>
 												
 												<p><strong>Global News Conglomerates and Tech Companies</strong></p>
 												<ul style="list-style-type:square;padding: 0 2em;">
-													<li><p>Many news agencies have created citizen-journalism upload (not sharing!) platforms for people to upload images and video. Those who upload their content are giving up their IP ownership rights. Again, Pixt profits by our users keeping their IP ownership.</p></li>
+													<li><p>Many news agencies have created citizen-journalism upload (not sharing!) platforms for people to upload images and video. Those who upload their content are giving up their IP ownership rights. Again, <?php echo $companyName ?> profits by our users keeping their IP ownership.</p></li>
 													<li><p>News Corporation acquired <a href="https://storyful.com/about/" target="_blank" class="color">Storyful</a> in 2013 for <a href="https://techcrunch.com/2013/12/20/news-corp-buys-storyful-for-25m-to-dig-up-verified-news-from-social-media-sites-like-twitter-and-instagram/" target="_blank" class="color">$25 Million USD.</a> Validating the need for passive fact-checking in journalism. The more people that share a picture or video of an event, the more factual it becomes.</p></li>
-													<li><p>In 2016, The Washington Post, owned by Amazon CEO and founder Jeff Bezos, test-published it's first <a href="https://www.wired.com/2017/02/robots-wrote-this-story/?mbid=social_fb" target="_blank" class="color">article written by Artifical Intelligence</a>. This validates a core business feature of Pixt without challenging our technology or global purpose. And, in fact, sets Pixt up for acquisition.</p>
-													<li><p>More recently, Google and Facebook have announced efforts to minimize the impact of fake news through their algorithms. Again, validating one of the core purposes of Pixt and setting up potential acquisition.</p></li>
+													<li><p>In 2016, The Washington Post, owned by Amazon CEO and founder Jeff Bezos, test-published it's first <a href="https://www.wired.com/2017/02/robots-wrote-this-story/?mbid=social_fb" target="_blank" class="color">article written by Artifical Intelligence</a>. This validates a core business feature of <?php echo $companyName ?> without challenging our technology or global purpose. And, in fact, sets <?php echo $companyName ?> up for acquisition.</p>
+													<li><p>More recently, Google and Facebook have announced efforts to minimize the impact of fake news through their algorithms. Again, validating one of the core purposes of <?php echo $companyName ?> and setting up potential acquisition.</p></li>
 												</ul>
 												<div class="clearfix">&nbsp;</div>												
 												
@@ -220,8 +204,8 @@
 												<ul style="list-style-type:square;padding: 0 2em;">
 													<li><p>Stock image and video is a multi-billion dollar industry,  with Getty being the market leader (valued at <a href="http://www.bloomberg.com/news/articles/2012-08-23/gettys-pics-worth-1-000-words-and-3-dot-3-billion" target="_blank" class="color">over $3 billion USD</a>).</p></li>
 													<li><p>Having worked in the advertising and marketing business, we know how much those industries depend on stock art <strong style="text-decoration: underline !important;">subscriptions</strong> to provide access to licensable media.</p></li>
-													<li><p>While the marketing and advertising industries, and others, can purchase licenses for editorial images and video from stock art companies, the content they license is already in the past. The stock media business deals in <strong style="text-decoration: underline;">what was</strong>, not <strong style="text-decoration: underline;">what is</strong> (and let's face it, most stock art <em>looks like stock art</em>). Pixt's differentiator is that we focus on timeliness, <em>and it's real</em>. Again, setting up potential acquisition from  this industry.</p></li>
-													<li><p>Content creators&mdash;photographers, videographers, and others&mdash;give up rights and have minimal ability to negotiate licensing fees for their content. Pixt profits from our users' ability to manage their own IP licensing structures.</p></li>
+													<li><p>While the marketing and advertising industries, and others, can purchase licenses for editorial images and video from stock art companies, the content they license is already in the past. The stock media business deals in <strong style="text-decoration: underline;">what was</strong>, not <strong style="text-decoration: underline;">what is</strong> (and let's face it, most stock art <em>looks like stock art</em>). <?php echo $companyName ?>'s differentiator is that we focus on timeliness, <em>and it's real</em>. Again, setting up potential acquisition from  this industry.</p></li>
+													<li><p>Content creators&mdash;photographers, videographers, and others&mdash;give up rights and have minimal ability to negotiate licensing fees for their content. <?php echo $companyName ?> profits from our users' ability to manage their own IP licensing structures.</p></li>
 												</ul>
 												
 												<a href="javascript:;" class="color scrollUp"><i class="fa fa-arrow-circle-up"> Back to top</i></a>
@@ -229,17 +213,17 @@
 									</section>
 									<section class="col-md-12" id="michael" >
 											<div class="row">
-												<h4 class="color">Who is the Pixt Team?</h4>
+												<h4 class="color">Who is the <?php echo $companyName ?> Team?</h4>
 												<p><strong>Michael Lisboa</strong><br />
 												Possesses over 20 years of experience as a leader in digital marketing, user experience and the technology space—developing online, social media, and mobile strategy and products for clients ranging from successful startups to global brands such as Oreo, Justin Timberlake and Citibank. Beginning in 1994, Michaelʼs company, Xaphon Interactive Media, was among the first new media companies to offer online marketing services to some of the most prominent companies in the world. Since 1997, Michael has been advocating experience-based, customer-centric marketing outreach.</p>
 												<p>He has spoken at trade shows and written articles about this very topic, and he is frequently called upon to create and conduct workshops and to speak conferences and seminars throughout Southeast Asia. Michael has extensive experience with business and marketing consulting services, application development, social media, mobile and smartphone apps, and cloud-based applications.</p>
 												<p>Fun fact, Michael conceived of, and invented our patents over a decade ago—long before the advent of smartphones!</p>
 												<p><strong>Vicky Tan Hui Ying</strong><br />
-												Began her career in marketing and account management and brings her experience in the advertising and public relations sectors to Pixt. Having worked with with some of the most recognized luxury hospitality brands in the world, as well as travel and boutique brands, she possesses a keen mind for business relations and product management. With local insights, Vicky brings key capabilities in partner relations and business development.</p>
+												Began her career in marketing and account management and brings her experience in the advertising and public relations sectors to <?php echo $companyName ?>. Having worked with with some of the most recognized luxury hospitality brands in the world, as well as travel and boutique brands, she possesses a keen mind for business relations and product management. With local insights, Vicky brings key capabilities in partner relations and business development.</p>
 												<p>She also led the social media and digital marketing function for the largest textile producer in Laos, developing a global digital communications strategy to drive awareness of the organization for high&ndash;end fashion houses and manufacturers around the world.</p>
 												<p><strong>Chokwan Kitty Chopaka</strong><br />
 												A serial entrepreneur, Kitty has launched a product design studio, interior design company and a corporate law firm catering to startups and international companies establishing business in Thailand.</p>
-												<p>With eight years of experience in business law and helping startups go from concept to product launch, Kitty operates as managing director and business strategist to connect with investors, and launch Pixt into Southeast Asia markets.</p>
+												<p>With eight years of experience in business law and helping startups go from concept to product launch, Kitty operates as managing director and business strategist to connect with investors, and launch <?php echo $companyName ?> into Southeast Asia markets.</p>
 												<p>Kitty complements the team with her management and problem-solving skills honed over ten years as a business strategist and consultant in her role as Managing Director of a prominent Thailand law firm.</p>
 												<a href="javascript:;" class="color scrollUp"><i class="fa fa-arrow-circle-up"> Back to top</i></a>
 											</div>
@@ -247,11 +231,11 @@
 									<section class="col-md-12" id="funding">
 											<div class="row">
 												<h4 class="color">Convertible Loan Funding</h4>
-												<p>Pixt will issue $1 Million USD in <a href="convertible-note-memo.php" class="color">Convertible Promissory Notes</a> to early-stage friends &amp; family and angel investors to fund the design and development of the Beta version, as well as some pre‐beta marketing and sales.</p>
+												<p><?php echo $companyName ?> will issue $1 Million USD in <a href="convertible-note-memo.php" class="color">Convertible Promissory Notes</a> to early-stage friends &amp; family and angel investors to fund the design and development of the Beta version, as well as some pre‐beta marketing and sales.</p>
 												
-												<p>Pixt is currently seeking to raise financing of $1 Million USD to fund product development until commercial launch, deploy its audience and close and implement strategic partnerships.  This funding will carry Pixt through early 2018, until it closes a Series A round with institutional investors or strategic partners.</p>	
+												<p><?php echo $companyName ?> is currently seeking to raise financing of $1 Million USD to fund product development until commercial launch, deploy its audience and close and implement strategic partnerships.  This funding will carry <?php echo $companyName ?> through early 2018, until it closes a Series A round with institutional investors or strategic partners.</p>	
 												
-												<p>Pixt is offering investors the opportunity to subscribe to convertible promissory notes under the following terms  and conditions:												
+												<p><?php echo $companyName ?> is offering investors the opportunity to subscribe to convertible promissory notes under the following terms  and conditions:												
 													<ul style="list-style-type:square;padding: 0 2em;">
 														<li>5% interest rate</li>
 														<li>Conversion into preferred shares upon closing of Series A at a discount</li>
@@ -263,7 +247,7 @@
 									</section>
 									<section class="col-md-12" id="valuation">	
 											<div class="row">
-												<h4 class="color">What is the Valuation of Pixt?</h4>
+												<h4 class="color">What is the Valuation of <?php echo $companyName ?>?</h4>
 												<p>As a pre-money start-up, determining a valuation is difficult. Although essential when seeking equity funding, a valuation can result in miscalculation or a challenge in valuation determined by VCs.</p>
 												
 												<p>So we have chosen to pursue friends &amp; family and angel investment in the form of <a href="convertible-note-memo.php" class="color">Convertible Loans</a>.</p>	
@@ -280,9 +264,9 @@
 												</p>
 												<p>We also looked at global statistics of mobile device usage, and content creation statistics to arrive at these assumptions:								
 													<ul style="list-style-type:square;padding: 0 2em;">
-														<li>If only <strong style="text-decoration:underline">0.001% of the 3 billion</strong> images and videos were uploaded directly to Pixt, that would be 30,000 images and videos uploaded every day.</li>
+														<li>If only <strong style="text-decoration:underline">0.001% of the 3 billion</strong> images and videos were uploaded directly to <?php echo $companyName ?>, that would be 30,000 images and videos uploaded every day.</li>
 														<li>Let’s say only 5% of those images and videos were licensed or bought outright at only $1 USD each, that would average $1,500 USD per day. </li>
-														<li>That would equal $547,500 USD&mdash;just in unique media licensing sales&mdash;in a full year of business. Media licensing isn't the only sales revenue Pixt will generate.</li>
+														<li>That would equal $547,500 USD&mdash;just in unique media licensing sales&mdash;in a full year of business. Media licensing isn't the only sales revenue <?php echo $companyName ?> will generate.</li>
 													</ul>
 												</p>	
 												<p>We also looked at other businesses in similar spaces:
@@ -320,7 +304,7 @@
 														<li>Registration fees for conferences and events</li>
 													</ul>
 												</p>
-												<p><strong>Product Development</strong><br />Our product development team requires specialized capabilities to develop Artificial Intelligence and our PixtBot technology. These capabilities are lacking in Southeast Asia and will likely require that we recruit and relocate team members with these specialized skills. Standard app development team members will be hired locally. 
+												<p><strong>Product Development</strong><br />Our product development team requires specialized capabilities to develop Artificial Intelligence and our <?php echo $companyName ?>Bot technology. These capabilities are lacking in Southeast Asia and will likely require that we recruit and relocate team members with these specialized skills. Standard app development team members will be hired locally. 
 													<ul style="list-style-type:square;padding: 0 2em;">
 														<li>Application Servers and hosting</li>
 														<li>Developers for mobile apps (iOS and Android)</li>
@@ -337,17 +321,17 @@
 									</section>
 									<section class="col-md-12" id="revenue">
 											<div class="row">
-												<h4 class="color">How Will Pixt Make Money?</h4>
-												<p>Pixt is set up to generate revenue from multiple sources, including licensing, commerce, susbcriptions, and advertising revenue.</p>
+												<h4 class="color">How Will <?php echo $companyName ?> Make Money?</h4>
+												<p><?php echo $companyName ?> is set up to generate revenue from multiple sources, including licensing, commerce, susbcriptions, and advertising revenue.</p>
 												<ul style="list-style-type:square;padding: 0 2em;">
-													<li><p><strong>Intellectual Property Licensing.</strong> News agencies, the advertising industry, publishers and more will be seeking to license content from Pixt's users. IP licensing deals can be negotiated by Pixt's automated bidding system, a personal Pixt IP Agent (in the case of large-scale, exclusive content), or by the individual. In all cases, Pixt will receive a percentage of these licensing deals, from 15% to 35% for negotiated deals.</p></li>
-													<li><p><strong>The Pixt Marketplace.</strong> The Pixt Marketplace is our e-commerce solution for timely, and real, user generated content that can be purchased outright or through a rolling licensing agreement.</p>
-													<p>We expect the Pixt Marketplace to be among the most highly trafficked services of Pixt, as we will be competing with the stock art industry, yet providing timely and real content&mdash;something the major players such as Getty are challenged to provide.</p></li>
-													<li><p><strong>Subscriptions.</strong> The Pixt subscription model will allow users to purchase monthly or annual subscriptions to receive notifications when large scale events occur.</p>
+													<li><p><strong>Intellectual Property Licensing.</strong> News agencies, the advertising industry, publishers and more will be seeking to license content from <?php echo $companyName ?>'s users. IP licensing deals can be negotiated by <?php echo $companyName ?>'s automated bidding system, a personal <?php echo $companyName ?> IP Agent (in the case of large-scale, exclusive content), or by the individual. In all cases, <?php echo $companyName ?> will receive a percentage of these licensing deals, from 15% to 35% for negotiated deals.</p></li>
+													<li><p><strong>The <?php echo $companyName ?> Marketplace.</strong> The <?php echo $companyName ?> Marketplace is our e-commerce solution for timely, and real, user generated content that can be purchased outright or through a rolling licensing agreement.</p>
+													<p>We expect the <?php echo $companyName ?> Marketplace to be among the most highly trafficked services of <?php echo $companyName ?>, as we will be competing with the stock art industry, yet providing timely and real content&mdash;something the major players such as Getty are challenged to provide.</p></li>
+													<li><p><strong>Subscriptions.</strong> The <?php echo $companyName ?> subscription model will allow users to purchase monthly or annual subscriptions to receive notifications when large scale events occur.</p>
 													<p>For example, a journalist for Rolling Stone Magazine may set up notifications for a large music festival, such as Coachella, to receive alerts when a particular artist is performing based on the number of image and video uploads by people present at the event. He can then scan through the uploaded content and choose to license media files for an article he may be writing.</p>
 													<p>Subscription fees will start at $99 USD/month or $1,000 USD/year.</p></li>
-													<li><p><strong>Ad Revenue.</strong> The public facing Pixt responsive website will be the source for our audiences to stay on top of world events <strong>as they happen</strong>. Imagine a social media enabled news site generated entirely by an Artificial Intelligence that's constantly listening, collecting and organizing content uploaded by people around the world.</p>
-													<p>We will market the Pixt website through social media and other channels to drive traffic and page views, setting us up to generate revenues from CPM, CPA, programmatic‐based advertising sales and sponsored content.</p></li>
+													<li><p><strong>Ad Revenue.</strong> The public facing <?php echo $companyName ?> responsive website will be the source for our audiences to stay on top of world events <strong>as they happen</strong>. Imagine a social media enabled news site generated entirely by an Artificial Intelligence that's constantly listening, collecting and organizing content uploaded by people around the world.</p>
+													<p>We will market the <?php echo $companyName ?> website through social media and other channels to drive traffic and page views, setting us up to generate revenues from CPM, CPA, programmatic‐based advertising sales and sponsored content.</p></li>
 												</ul>
 												<a href="javascript:;" class="color scrollUp"><i class="fa fa-arrow-circle-up"> Back to top</i></a>
 											</div>
@@ -356,28 +340,28 @@
 									<section class="col-md-12" id="swot">
 											<div class="row">
 												<h4 class="color">Strengths, Weaknesses, and Opportunities.</h4>
-												<p>While Pixt is intended to create a new standard of content creation for consumers, journalism, advertising and media, we have a very real view of how we will launch, scale and grow globally.</p>
+												<p>While <?php echo $companyName ?> is intended to create a new standard of content creation for consumers, journalism, advertising and media, we have a very real view of how we will launch, scale and grow globally.</p>
 												<p><strong>Strengths</strong>
 													<ul style="list-style-type:square;padding: 0 2em;">
 														<li>
-															<p>Pixt's strengths lie in the capabilities that our team brings with over 25 years’ experience in user experience, technology, web services, mobile and social media.</p>
+															<p><?php echo $companyName ?>'s strengths lie in the capabilities that our team brings with over 25 years’ experience in user experience, technology, web services, mobile and social media.</p>
 															<p>In fact, Michael first developed a method for uploading and sharing photos by mobile phone to a website via email and SMS in 2002&mdash;long before there were smartphones and apps!</p>
 														</li>
 														<li>
 															<p>The major, global tech companies have <a href="https://www.bloomberg.com/news/articles/2014-01-30/google-s-motorola-sale-underscores-primacy-of-patents" class="color" target="_blank">invested substantially in intellectual property</a> simply to compete. Our exclusive patents, owned by Michael Lisboa, put us in a unique position for negotiations for valuation, and acquisition or IPO.</p>
 														</li>
 														<li>
-															<p>The technology innovations of Pixt are an industry first. Leveraging AI, machine learning and people's natural behavior to upload and share their content (particularly GenY and GenZ), we expect our content inventory to scale at increasingly accelerated rates, leading to aggressive growth in sales and partnerships with major media organizations.</p>
+															<p>The technology innovations of <?php echo $companyName ?> are an industry first. Leveraging AI, machine learning and people's natural behavior to upload and share their content (particularly GenY and GenZ), we expect our content inventory to scale at increasingly accelerated rates, leading to aggressive growth in sales and partnerships with major media organizations.</p>
 														</li>
 													</ul>
 												</p>
 												<p><strong>Weaknesses</strong>
 													<ul style="list-style-type:square;padding: 0 2em;">
 														<li>
-															<p>The key weakness Pixt faces is financial. To date, we've invested over $150,000 USD to develop the Pixt business, however our personal funding is limited.</p>
+															<p>The key weakness <?php echo $companyName ?> faces is financial. To date, we've invested over $150,000 USD to develop the <?php echo $companyName ?> business, however our personal funding is limited.</p>
 														</li>
 														<li>
-															<p>Although what Pixt is offering is a disruptive shift&mdash;and will have global impact in multiple industries and in how people share content&mdash;it is a new idea, and a new way of doing things. Pixt could face slow growth initially as it invests in marketing and the right partnerships to shift audience perception and establish an active user base. This slow growth will impact our ability to generate revenue quickly, as Pixt is currently bootstrapping, to build what we are confident will be a successful business.</p>
+															<p>Although what <?php echo $companyName ?> is offering is a disruptive shift&mdash;and will have global impact in multiple industries and in how people share content&mdash;it is a new idea, and a new way of doing things. <?php echo $companyName ?> could face slow growth initially as it invests in marketing and the right partnerships to shift audience perception and establish an active user base. This slow growth will impact our ability to generate revenue quickly, as <?php echo $companyName ?> is currently bootstrapping, to build what we are confident will be a successful business.</p>
 														</li>
 														<li>
 															<p>Our ability to build a product development team is hampered due to financial constraints, as well as the lack of talent and capabilities of technologists in the region. We will need to offer compelling compensation packages to attract the best and most knowledgeable people possible. In addition, Southeast Asia lacks the capabilities we require, particularly AI programmers and infrastructure developers, as a result we will have to recruit and relocate specialists from overseas.</p>
@@ -386,10 +370,10 @@
 												<p><strong>Opportunities</strong>
 													<ul style="list-style-type:square;padding: 0 2em;">
 														<li>
-															<p>Pixt's audiences vary from content consumers to IP license buyers and sellers, including news agencies, the advertising industry, media companies, publishers, and the public consumer. This expansive user base provides us with many revenue opportunities beyond the standard ad revenue model of social media and content publishing platforms and websites.</p>
+															<p><?php echo $companyName ?>'s audiences vary from content consumers to IP license buyers and sellers, including news agencies, the advertising industry, media companies, publishers, and the public consumer. This expansive user base provides us with many revenue opportunities beyond the standard ad revenue model of social media and content publishing platforms and websites.</p>
 														</li>
 														<li>
-															<p>Pixt is designed to allow <strong>anybody with an internet connection</strong> to upload and share their stories&mdash;whether through the Pixt app, website, SMS, chat, email, or other channels&mdash;a capability lacking in popular social media platforms such as Instagram, Snapchat and others. This will allow us to take advantage of a much broader user base of the <a href="http://www.mobileconnectivityindex.com/widgets/connectivityIndex/pdf/ConnectivityIndex_V01.pdf" class="color" target="_blank">more than 3 billion</a> people using <a href="https://en.wikipedia.org/wiki/Feature_phone" class="color" target="_blank">feature phones</a> in emerging markets.</p>
+															<p><?php echo $companyName ?> is designed to allow <strong>anybody with an internet connection</strong> to upload and share their stories&mdash;whether through the <?php echo $companyName ?> app, website, SMS, chat, email, or other channels&mdash;a capability lacking in popular social media platforms such as Instagram, Snapchat and others. This will allow us to take advantage of a much broader user base of the <a href="http://www.mobileconnectivityindex.com/widgets/connectivityIndex/pdf/ConnectivityIndex_V01.pdf" class="color" target="_blank">more than 3 billion</a> people using <a href="https://en.wikipedia.org/wiki/Feature_phone" class="color" target="_blank">feature phones</a> in emerging markets.</p>
 															<p>Imagine the global impact of a 12-year old Somali girl who can immediately share powerful and newsworthy images of a warlord invasion in her town. Or a farmer who can ask for help from around the world because of a flood in a rural island village in southern Indonesia.</p>
 															<p>Now imagine that they can get paid by global news agencies by licensing those images&mdash;and we can help them.</p>
 														</li>

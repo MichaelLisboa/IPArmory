@@ -1,9 +1,8 @@
 <?php
- ob_start();
- session_start();
- require( "cms/config.php" );
- require_once 'cms/dbconnect.php';
- require_once 'cms/company_db.php';
+	ob_start();
+	session_start();
+	require( "cms/config.php" );
+	require_once 'cms/company_db.php';
 ?>
 
 
@@ -86,7 +85,7 @@
 							<div class="bg-img bg-img-1"></div>
 						<div class="carousel-caption">
 							<div>
-								<img class="wow fadeInUp" src="img/pixt.png" alt="Pixt">
+								<img class="wow fadeInUp" src="img/pixt.png" alt="<?php echo $companyName ?> logo">
 								<h2 data-wow-duration="500ms"  data-wow-delay="500ms" class="heading animated fadeInRight"><?php echo $companyTagline ?></h2>
 							</div>
 						</div>
@@ -111,28 +110,20 @@
 	                    <span class="icon-bar"></span>
 	                </button>				
 					<!-- logo -->
-                    <a class="navbar-brand" href="#body">
-						<h1 id="logo">
-							<img src="img/logo-pixt.png" alt="Pixt" />
-						</h1>
-					</a>
+                    <a class="navbar-brand" href="#body" id="logo">
+							<img src="img/logo.png" alt="<?php echo $companyName ?> logo" style="width: 150px" /></a>
 					<!-- /logo -->
                 </div>
                 
 				<!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="Navigation">
                     <ul id="nav" class="nav navbar-nav" data-toggle="collapse" data-target="#navbar-menu">
-                        <li><a href="#about" data-toggle="collapse" data-target=".navbar-collapse.in">Home</a></li>
                         <li><a href="#main-features" data-toggle="collapse" data-target=".navbar-collapse.in">The Video</a></li>
                         <li><a href="#services" data-toggle="collapse" data-target=".navbar-collapse.in">Financials &amp; FAQs</a></li>
                         <li><a href="#blog" data-toggle="collapse" data-target=".navbar-collapse.in">The Patents</a></li>
                         <li><a href="#pricing" data-toggle="collapse" data-target=".navbar-collapse.in">Investment Timeline</a></li>
                         <li><a href="#our-team" data-toggle="collapse" data-target=".navbar-collapse.in">Our Team</a></li>
                         <li><a href="#contact-us" data-toggle="collapse" data-target=".navbar-collapse.in">Contact</a></li>
-                        <?php if ($adminAccess == 1) {
-                        ?>
-                        <li><a href="/admin" data-toggle="collapse" data-target=".navbar-collapse.in">Admin</a></li>
-                        <?php } ?>
                     </ul>
                 </nav>
 				<!-- /main nav -->
@@ -166,7 +157,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3 class="ddd">Artificial Intelligence</h3>								
-								<p><strong>PixtBot</strong> is designed to scrape metadata to collect, categorize and create live stories of images and videos uploaded by people like you and us.</p>
+								<p><strong><?php echo $companyName ?>Bot</strong> is designed to scrape metadata to collect, categorize and create live stories of images and videos uploaded by people like you and us.</p>
 							</div>
 						</div>
 					</div> 
@@ -181,7 +172,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3>Natural Human Behavior</h3>
-								<p>A single picture or video can change everything&mdash;everybody has a voice today. Pixt is fueled by over 3 billion images and videos uploaded every day.</p>
+								<p>A single picture or video can change everything&mdash;everybody has a voice today. <?php echo $companyName ?> is fueled by over 3 billion images and videos uploaded every day.</p>
 							</div>
 						</div>
 					</div> 
@@ -196,7 +187,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3>Media Licensing</h3>
-								<p>The first content platform to create value of the images and videos you upload and share.  Lets you set the terms and value of the content YOU create in the Pixt Marketplace.</p>
+								<p>The first content platform to create value of the images and videos you upload and share.  Lets you set the terms and value of the content YOU create in the <?php echo $companyName ?> Marketplace.</p>
 							</div>
 						</div>
 					</div> 
@@ -260,7 +251,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3>Fake News</h3>								
-								<p>Pixt will battle the problem of fake news and internet trolling—and simultaneously generate live stories based on time, location, source, tags, and other metadata.</p>
+								<p><?php echo $companyName ?> will battle the problem of fake news and internet trolling—and simultaneously generate live stories based on time, location, source, tags, and other metadata.</p>
 							</div>
 						</div>
 					</div> 
@@ -275,7 +266,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3>Automated Content</h3>
-								<p>Pixt compiles countless media files that people around the world upload through any medium, including the Pixt app, website, or any chat/messenger service.</p>
+								<p><?php echo $companyName ?> compiles countless media files that people around the world upload through any medium, including the <?php echo $companyName ?> app, website, or any chat/messenger service.</p>
 							</div>
 						</div>
 					</div> 
@@ -290,7 +281,7 @@
 							<!-- Express About Yourself -->
 							<div class="about-content text-center">
 								<h3>Common Experience Across Devices</h3>
-								<p>Pixt is device agnostic. Share your content from feature phones, smartphones, website or any number of social media or messaging apps. No instructions needed.</p>
+								<p><?php echo $companyName ?> is device agnostic. Share your content from feature phones, smartphones, website or any number of social media or messaging apps. No instructions needed.</p>
 							</div>
 						</div>
 					</div> 
@@ -333,7 +324,7 @@
 							<div class="service-icon text-center">
 								<a href="pixt-financials.php"><i class="fa fa-file-excel-o fa-5x"></i></a>
 							</div>
-							<h3><a href="pixt-financials.php">Pixt Financial Projections</a></h3>
+							<h3><a href="pixt-financials.php"><?php echo $companyName ?> Financial Projections</a></h3>
 							<p>We know what's important. Have a look at <a href="pixt-financials.php" class="color">our financial projections</a>.</p>
 							<a class="btn btn-transparent" href="pixt-financials.php">Download</a>
 						</div>
@@ -346,8 +337,8 @@
 							<div class="service-icon text-center">
 								<a href="pixt-story.php"><i class="fa fa-photo fa-5x"></i></a>
 							</div>
-							<h3><a href="pixt-story.php">The Pixt Story Presentation</a></h3>
-							<p>The Pixt Story presentation is our pitch deck. You can <a href="pixt-story.php" class="color">get it here</a>.</p>
+							<h3><a href="pixt-story.php">The <?php echo $companyName ?> Story Presentation</a></h3>
+							<p>The <?php echo $companyName ?> Story presentation is our pitch deck. You can <a href="pixt-story.php" class="color">get it here</a>.</p>
 							<a class="btn btn-transparent" href="pixt-story.php">Download</a>
 						</div>
 					</article>
@@ -378,7 +369,7 @@
 						<article class="col-md-6 col-sm-6 col-xs-12 clearfix wow fadeInUp" data-wow-duration="500ms">
 							<div class="note">
 								<div class="media-wrapper">
-									<img src="img/blog/pixt-patent.jpg" alt="Pixt Patent coverimage" class="img-responsive">
+									<img src="img/blog/pixt-patent.jpg" alt="<?php echo $companyName ?> Patent coverimage" class="img-responsive">
 								</div>
 								
 								<div class="excerpt">
@@ -542,7 +533,7 @@
 							
 							<!-- plan description -->
 							<ul>
-								<li>3 months for PixtBot development</li>
+								<li>3 months for <?php echo $companyName ?>Bot development</li>
 								<li>6 months for AI development</li>
 								<li>Mobile and Web app development</li>
 								<li>Key staff recruitment</li>
@@ -598,7 +589,7 @@
 		               <article class="team-mate">
 							<div class="member-photo">
 								<!-- member photo -->
-								<img class="img-responsive" src="img/team/member-1.jpg" alt="Pixt">
+								<img class="img-responsive" src="img/team/member-1.jpg" alt="<?php echo $companyName ?>">
 								<!-- /member photo -->								
 								<!-- member social profile -->
 								<div class="mask">
@@ -633,7 +624,7 @@
 		               <article class="team-mate">
 							<div class="member-photo">
 								<!-- member photo -->
-								<img class="img-responsive" src="img/team/member-2.jpg" alt="Pixt">
+								<img class="img-responsive" src="img/team/member-2.jpg" alt="<?php echo $companyName ?>">
 								<!-- /member photo -->
 								
 								<!-- member social profile -->
@@ -656,7 +647,7 @@
 							
 							<!-- about member -->
 		                   <div class="member-info">
-		                       <p>Kitty is a partner in Pixt. She comes from law, but more so she's an entrepreneur, business strategist, and marketing and consumer experience genius.</p>
+		                       <p>Kitty is a partner in <?php echo $companyName ?>. She comes from law, but more so she's an entrepreneur, business strategist, and marketing and consumer experience genius.</p>
 		                   </div>
 						   <!-- /about member -->
 						</article>
@@ -668,7 +659,7 @@
 		               <article class="team-mate">
 							<div class="member-photo">
 								<!-- member photo -->
-								<img class="img-responsive" src="img/team/member-3.jpg" alt="Pixt">
+								<img class="img-responsive" src="img/team/member-3.jpg" alt="<?php echo $companyName ?>">
 								<!-- /member photo -->
 								
 								<!-- member social profile -->
@@ -703,7 +694,7 @@
 		               <article class="team-mate kill-margin-bottom">
 							<div class="member-photo">
 								<!-- member photo -->
-								<img class="img-responsive" src="img/team/member-4.jpg" alt="Pixt">
+								<img class="img-responsive" src="img/team/member-4.jpg" alt="<?php echo $companyName ?>">
 								<!-- /member photo -->
 								
 								<!-- member social profile -->

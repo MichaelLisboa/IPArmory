@@ -1,8 +1,7 @@
 <?php
  ob_start();
  session_start();
- require( "../cms/config.php" ); 
- require_once 'dbconnect.php';
+ require( "../cms/config.php" );
  require_once '../cms/company_db.php';
  
  // if session is not set this will redirect to login page
@@ -14,7 +13,7 @@
  $res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
  $userRow=mysql_fetch_array($res);
  
- if( ($userRow['userLevel']) != '1' ) {
+ if( ($userRow['userLevel']) == '0' ) {
  	 header("Location: /index.php");
  	 die;
  }
@@ -30,10 +29,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Pixt">
+        <meta name="description" content="<?php echo $companyName ?> | Admin Panel">
         <meta name="robots" content="noindex" />
 		
-        <title>Pixt</title>
+        <title><?php echo $companyName ?> | Admin Panel</title>
 		
 		<!-- Mobile Specific Meta
 		================================================== -->
@@ -41,22 +40,22 @@
 		
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-<link rel="manifest" href="/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+		<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
 		
 		<!-- CSS
 		================================================== -->
@@ -67,9 +66,7 @@
 		<!-- Main Stylesheet -->
         <link rel="stylesheet" href="/css/main.php?v=<?php echo rand() ?>">
 
-		
-		
-		<!-- Modernizer Script for old Browsers -->		
+		<!-- Modernizer Script for old Browsers -->
         <script async src="/js/modernizr-2.6.2.min.js"></script>
         
         <style>        
@@ -92,35 +89,7 @@
     Fixed Navigation
     ==================================== -->
     <header id="navigation" class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">	
-            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>				
-    			<!-- logo -->
-                <a class="navbar-brand" href="index.php">
-    				<h1 id="logo">
-    					<img src="/img/logo-pixt.png" alt="Pixt" />
-    				</h1>
-    			</a>
-    			<!-- /logo -->
-            </div>
-            
-    		<!-- main nav -->
-            <nav class="collapse navbar-collapse navbar-right" role="Navigation">
-                <ul id="nav" class="nav navbar-nav" data-toggle="collapse" data-target="#navbar-menu">
-                    <li><a href="/index.php" data-toggle="collapse" data-target=".navbar-collapse.in">Go to Pixt</a></li>
-                    <li><a href="view.php" data-toggle="collapse" data-target=".navbar-collapse.in">See All Guests</a></li>
-                    <li><a href="new.php" data-toggle="collapse" data-target=".navbar-collapse.in">Add a New Guest</a></li>
-                    <li><a href="access.php" data-toggle="collapse" data-target=".navbar-collapse.in">Activity Tracking</a></li>
-                    <li><a href="company-setup.php" data-toggle="collapse" data-target=".navbar-collapse.in">Company Info</a></li>
-                    <li><a href="/logout.php?logout" data-toggle="collapse" data-target=".navbar-collapse.in">Logout</a></li>
-                </ul>
-            </nav>
-    		<!-- /main nav -->
+        <div class="container"><?php include '../includes/admin-nav.php' ?>
     		
         </div>
     </header>
@@ -200,8 +169,9 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 			   							
 			   							<div class="form-group">
 			   								<select name="admin" class="styled-select">
-			   								  <option value="0" selected="true">Not an admin</option>
-			   								  <option value="1">Has admin access</option>
+			   								  <option <?php if ($admin == 0 ) echo 'selected' ; ?> value="0">Not an admin</option>
+			   								  <option <?php if ($admin == 1 ) echo 'selected' ; ?> value="1">Has admin access</option>
+		   								  	  <option <?php if ($admin == 2 ) echo 'selected' ; ?> value="2">Superuser</option>
 			   								</select>
 			   							</div>
 			   							

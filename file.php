@@ -1,10 +1,22 @@
 <?php
- ob_start();
- session_start();
- require( "cms/config.php" );
- require_once 'cms/dbconnect.php';
- require_once 'cms/company_db.php';
- $userId = $_SESSION['user'];
+	ob_start();
+	session_start();
+	require( "cms/config.php" );
+	require_once 'cms/company_db.php';
+	
+	$userId = $_SESSION['user'];
+	
+	if (isset($_GET['fileid']) && is_numeric($_GET['fileid']) && $_GET['fileid'] > 0) {
+		
+		$res=mysql_query("SELECT * FROM files WHERE fileid=".$_GET['fileid']);
+		$fileRow=mysql_fetch_array($res);
+		
+		$fileid = $_GET['fileid'];
+		$file = $fileRow['file'];
+		$filename = $fileRow['filename'];
+		$summary = $fileRow['summary'];
+		$description = $fileRow['description'];
+	}
  
  ?>
 <!DOCTYPE html>
@@ -13,8 +25,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <title><?php echo $companyName ?> | Download the <?php echo $companyName ?> Story Presentation</title>
-    <meta name="description" content="The <?php echo $companyName ?> Story Presentation">
+    <title><?php echo $companyName ?> | Download the <?php echo $companyName ?> Events Patent</title>
+    <meta name="description" content="The <?php echo $companyName ?> Patent">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,23 +96,19 @@
                                     <img src="img/blog/pixt-story.jpg" alt="The <?php echo $companyName ?> Presentation" class="img-responsive">
                                 </div>-->
 								<div class="post-excerpt">
-									<h3 class="color">Download the <?php echo $companyName ?> Story Presentation</h3>
-									
-									<p>The <?php echo $companyName ?> Story Presentation is our pitch deck. It is a summary of the <?php echo $companyName ?> application for private use only.</p>
+									<h3 class="color"><?php echo $filename ?></h3>
+									<?php echo $description ?>
 									<?php include 'includes/confidentiality-notice.php' ?>
 									
-									<p class="text-center"><a class="btn btn-transparent " href="download.php?id=1&userId=<?php echo($userId) ?>" target="_blank" download>I Agree</a> &nbsp; <a class="btn btn-transparent " href="logout.php?logout">No thanks</a></p>
+									<p class="text-center"><a class="btn btn-transparent " href="download.php?id=<?php echo $fileid ?>&userId=<?php echo($userId) ?>" target="_blank" download>I Agree</a> &nbsp; <a class="btn btn-transparent " href="logout.php?logout">No thanks</a></p>
 								</div>
-                            </article>
-							
+                            </article>							
                             <!-- End Single Post -->
-
                         </div>
                     </div>
                     
                     <!-- Widget Section -->
-                    <div id="right-sidebar" class="col-md-4 col-sm-4">
-                       
+                    <div id="right-sidebar" class="col-md-4 col-sm-4">                       
                        <!-- Single Widget -->
                         <aside class="widget wow fadeInDown">								
 							<div class="widget-content">								
@@ -120,27 +128,23 @@
 												<a href="pixt-faq.php"><i class="fa fa-question-circle fa-5x"></i></a>
 											</div>
 											<a href="pixt-faq.php"><h3 class="text-center">Frequently Asked Questions</h3></a>
-											<p class="text-center">Funny thing, we hear the same questions often and we have answers. <a href="pixt-faq.php" style="text-decoration: underline;">Our FAQ</a> has the answers.</p>
-											
+											<p class="text-center">Funny thing, we hear the same questions often and we have answers. <a href="pixt-faq.php" style="text-decoration: underline;">Our FAQs</a> has the answers.</p>
 										</div>
-									</article>							
-									
+									</article>
 								</div>
-								<!-- /tab content -->
-								
+								<!-- /tab content -->								
 							</div>
                         </aside>
-                        <!-- End Single Widget -->
-                        
+                        <!-- End Single Widget -->                        
                     </div>
                     <!-- End Widget Section -->
-
 				</div>	    <!-- End row -->
 			</div>       <!-- End container -->
 		</section>    <!-- End Section -->
         
 		<?php include 'includes/contact.php' ?>
 		<?php include 'includes/footer.php' ?>
+		
 		<!-- 
 		Essential Scripts
 		=====================================-->

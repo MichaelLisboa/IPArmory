@@ -13,9 +13,9 @@
 	$res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
 	$userRow=mysql_fetch_array($res);
 	
-	if( ($userRow['userLevel']) != '1' ) {
-		header("Location: /index.php");
-		die;
+	if( ($userRow['userLevel']) == '0' ) {
+		 header("Location: /index.php");
+		 die;
 	}
 ?>
 
@@ -27,10 +27,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Pixt">
+        <meta name="description" content="<?php echo $companyName ?> | Admin Panel">
         <meta name="robots" content="noindex" />
 		
-        <title>Pixt</title>
+        <title><?php echo $companyName ?> | Admin Panel</title>
 		
 		<!-- Mobile Specific Meta
 		================================================== -->
@@ -77,35 +77,7 @@
     ==================================== -->
     <header id="navigation" class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">	
-            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>				
-    			<!-- logo -->
-                <a class="navbar-brand" href="index.php">
-    				<h1 id="logo">
-    					<img src="/img/logo-pixt.png" alt="Pixt" />
-    				</h1>
-    			</a>
-    			<!-- /logo -->
-            </div>
-            
-    		<!-- main nav -->
-            <nav class="collapse navbar-collapse navbar-right" role="Navigation">
-                <ul id="nav" class="nav navbar-nav" data-toggle="collapse" data-target="#navbar-menu">
-                    <li><a href="/index.php" data-toggle="collapse" data-target=".navbar-collapse.in">Go to Pixt</a></li>
-                    <li><a href="view.php" data-toggle="collapse" data-target=".navbar-collapse.in">See All Guests</a></li>
-                    <li><a href="new.php" data-toggle="collapse" data-target=".navbar-collapse.in">Add a New Guest</a></li>
-                    <li><a href="access.php" data-toggle="collapse" data-target=".navbar-collapse.in">Activity Tracking</a></li>
-                    <li><a href="company-setup.php" data-toggle="collapse" data-target=".navbar-collapse.in">Company Info</a></li>
-                    <li><a href="/logout.php?logout" data-toggle="collapse" data-target=".navbar-collapse.in">Logout</a></li>
-                </ul>
-            </nav>
-    		<!-- /main nav -->
-    		
+        	<?php include '../includes/admin-nav.php' ?>    		
         </div>
     </header>
     <!--
@@ -123,7 +95,7 @@
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="blog-title">
-                        <h1>Pixt Guests</h1>
+                        <h1><?php echo $companyName ?> Guests</h1>
                     </div>
                     
 				</div>     <!-- End col-lg-12 -->
@@ -161,38 +133,9 @@ $today = $mysql_date_now = date("Y-m-d");
 			echo "<dl>";
 			while($row = mysql_fetch_array( $result )) {	
 			
-				if($row['userLevel']=='1'){
-					$adminlevel = 'Admin';
-				}else{
-					$adminlevel = 'Guest';
-				}
-				
-				$expireDate = $row['userExpires'];
-				$createDate = $row['createDate'];
-				$dateCheck = date('Y-m-d',strtotime($createDate . " + $expireDate day"));
-				
-				$now = strtotime($today);
-				$endDate = strtotime($dateCheck);
-				$datediff = $endDate - $now;				
-				$daysLeft = floor($datediff / (60 * 60 * 24));
-				$dateStr = date('F jS\, Y', $endDate);
-				
-				if($dateCheck > $today){
-					if($daysLeft == '1'){
-						$expireDate = '<span class="text-danger"><strong>Expires Today</strong></span>';
-					}else{
-						$expireDate = '<strong>Expires</strong> in  &nbsp;<span style="text-decoration:underline;">' . $daysLeft  . ' days</span> on ' . $dateStr . '';
-					}
-				}else{
-					$expireDate = '<span class="text-danger"><strong>Account expired</strong></span>';
-				}
-				
+			
 				
 				echo '<dt>' . $row['userName'] . ' &nbsp; &nbsp; <a href="edit.php?userId=' . $row['userId'] . '" class="color"><i class="fa fa-edit fa-1x"></i></a> &nbsp; &nbsp; <a href="delete-warning.php?userId=' . $row['userId'] . '"  class="color"><i class="fa fa-remove fa-1x"></i></a></dt>';
-				echo '<dd><strong>Email address: &nbsp; </strong><a href="mailto:' . $row['userEmail'] . '?subject=Hello, from Pixt!" class="color">' . $row['userEmail'] . '</a></dd>';
-				echo '<dd><strong>Phone number: &nbsp; </strong>' . $row['userPhone'] . '</dd>';
-				echo '<dd><strong>Access level:  &nbsp; </strong>' . $adminlevel . '</dd>';
-				echo '<dd>' . $expireDate . '</dd>';
 			
 			}
 			// close table>

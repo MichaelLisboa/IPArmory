@@ -3,8 +3,6 @@ require( "../cms/config.php" );
 
  ob_start();
  session_start();
- 
- require_once 'dbconnect.php';
  require_once '../cms/company_db.php';
  
  
@@ -17,10 +15,10 @@ require( "../cms/config.php" );
  $res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
  $userRow=mysql_fetch_array($res);
  
- if( ($userRow['userLevel']) != '1' ) {
- 	 header("Location: /index.php");
- 	 die;
- }
+if( ($userRow['userLevel']) == '0' ) {
+	 header("Location: /index.php");
+	 die;
+}
  
 ?>
 
@@ -32,10 +30,10 @@ require( "../cms/config.php" );
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="description" content="Pixt">
+        <meta name="description" content="<?php echo $companyName ?> | Admin Panel">
         <meta name="robots" content="noindex" />
 		
-        <title>Pixt</title>
+        <title><?php echo $companyName ?> | Admin Panel</title>
 		
 		<!-- Mobile Specific Meta
 		================================================== -->
@@ -98,35 +96,7 @@ require( "../cms/config.php" );
     ==================================== -->
     <header id="navigation" class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">	
-            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>				
-    			<!-- logo -->
-                <a class="navbar-brand" href="index.php">
-    				<h1 id="logo">
-    					<img src="/img/logo-pixt.png" alt="Pixt" />
-    				</h1>
-    			</a>
-    			<!-- /logo -->
-            </div>
-            
-    		<!-- main nav -->
-            <nav class="collapse navbar-collapse navbar-right" role="Navigation">
-                <ul id="nav" class="nav navbar-nav" data-toggle="collapse" data-target="#navbar-menu">
-	                <li><a href="/index.php" data-toggle="collapse" data-target=".navbar-collapse.in">Go to Pixt</a></li>
-                    <li><a href="view.php" data-toggle="collapse" data-target=".navbar-collapse.in">See All Guests</a></li>
-                    <li><a href="new.php" data-toggle="collapse" data-target=".navbar-collapse.in">Add a New Guest</a></li>
-                    <li><a href="access.php" data-toggle="collapse" data-target=".navbar-collapse.in">Activity Tracking</a></li>
-                    <li><a href="company-setup.php" data-toggle="collapse" data-target=".navbar-collapse.in">Company Info</a></li>
-                    <li><a href="/logout.php?logout" data-toggle="collapse" data-target=".navbar-collapse.in">Logout</a></li>
-                </ul>
-            </nav>
-    		<!-- /main nav -->
-    		
+            <?php include '../includes/admin-nav.php' ?>    		
         </div>
     </header>
     <!--
@@ -144,7 +114,7 @@ require( "../cms/config.php" );
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="blog-title">
-                        <h1>Pixt Activity</h1>
+                        <h1><?php echo $companyName ?> Activity</h1>
                     </div>
                     
 				</div>     <!-- End col-lg-12 -->
@@ -175,7 +145,7 @@ require( "../cms/config.php" );
 
 // $result = mysql_query("SELECT a.*, d.* FROM activity a,downloads d WHERE a.user_id=d.user_id GROUP BY a.userName ORDER BY a.loginDate DESC")
 
-$result = mysql_query("SELECT userActive, loginDate, userName, COUNT(*) as total, MAX(loginDate) FROM activity GROUP BY userName ORDER BY MAX(loginDate) DESC") or die(mysql_error());
+$result = mysql_query("SELECT userName, COUNT(*) as total, MAX(loginDate), userActive FROM activity GROUP BY userName, userActive ORDER BY MAX(loginDate) DESC") or die(mysql_error());
 
 
 						echo "<dl>";
